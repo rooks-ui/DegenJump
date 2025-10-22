@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqwb1c6iw3fpq"]
+
+[sub_resource type="Gradient" id="Gradient_c48lc"]
+offsets = PackedFloat32Array(0, 0.612676, 0.676056, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0.196078, 0.196078, 0.196078, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_srplv"]
+gradient = SubResource("Gradient_c48lc")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_srplv"]
+offsets = PackedFloat32Array(0, 0.204225, 0.640845, 0.690141, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.15493, 0.15493, 0.15493, 1, 0.251439, 0.564148, 0.699454, 1, 0.388235, 0.643137, 0.752941, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g5y8c"]
+gradient = SubResource("Gradient_srplv")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[node name="PanelContainer" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CenterContainer"]
+layout_mode = 2
+max_value = 50.0
+value = 50.0
+fill_mode = 5
+texture_under = SubResource("GradientTexture2D_srplv")
+texture_progress = SubResource("GradientTexture2D_g5y8c")

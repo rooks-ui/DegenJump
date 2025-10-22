@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://vaypif5jhbej"]
+
+[ext_resource type="Script" uid="uid://r7npkl7mdcak" path="res://scenes/collectible.gd" id="1_1pg6c"]
+[ext_resource type="Texture2D" uid="uid://dh04oqjl7hx3g" path="res://assets/01.png" id="2_6gns2"]
+[ext_resource type="Texture2D" uid="uid://dmc755aam0s6e" path="res://assets/02.png" id="3_rapul"]
+[ext_resource type="Texture2D" uid="uid://dph48hwgahedc" path="res://assets/03.png" id="4_mh687"]
+[ext_resource type="Texture2D" uid="uid://dk6vvn8i8uxwc" path="res://assets/g1.png" id="5_fuck5"]
+[ext_resource type="Texture2D" uid="uid://duylx4snqi4q" path="res://assets/g2.png" id="6_72l5o"]
+[ext_resource type="AudioStream" uid="uid://ivfcvpya77jv" path="res://assets/retro-coin-4-236671.mp3" id="6_rapul"]
+[ext_resource type="Texture2D" uid="uid://bfhj040hw6j1n" path="res://assets/g3.png" id="7_udoxq"]
+[ext_resource type="Texture2D" uid="uid://d3o65uscxl4x6" path="res://assets/g4.png" id="8_naap0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ok4ui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6gns2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rapul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_mh687")
+}],
+"loop": false,
+"name": &"collected",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_fuck5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_72l5o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_udoxq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_naap0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wim3b"]
+radius = 18.0278
+
+[node name="collectible" type="Area2D"]
+texture_filter = 1
+script = ExtResource("1_1pg6c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 2)
+scale = Vector2(3.09375, 2.71875)
+sprite_frames = SubResource("SpriteFrames_ok4ui")
+autoplay = "default"
+frame_progress = 0.532106
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_wim3b")
+
+[node name="CoinCollect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_rapul")
+volume_db = -21.79
+bus = &"SFX"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

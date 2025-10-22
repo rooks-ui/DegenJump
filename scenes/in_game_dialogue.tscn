@@ -1,0 +1,368 @@
+[gd_scene load_steps=30 format=3 uid="uid://b5kigu43bcwbc"]
+
+[ext_resource type="Script" uid="uid://deyxiihlla3q4" path="res://scenes/in_game_dialogue.gd" id="1_m1u84"]
+[ext_resource type="FontFile" uid="uid://dh6jh2opb8e4i" path="res://assets/Super Sunkissed.ttf" id="1_veyft"]
+[ext_resource type="Texture2D" uid="uid://dah0d0e82gppo" path="res://assets/large_dice_brownyellow1.png" id="2_bcw1j"]
+[ext_resource type="Texture2D" uid="uid://cg3ow8lblm15s" path="res://assets/large_dice_brownyellow2.png" id="3_f71gc"]
+[ext_resource type="Texture2D" uid="uid://cwyhfghyba25r" path="res://assets/large_dice_brownyellow3.png" id="4_m1u84"]
+[ext_resource type="Texture2D" uid="uid://b7kmygs1wo4yn" path="res://assets/large_dice_brownyellow4.png" id="5_7uiqe"]
+[ext_resource type="Texture2D" uid="uid://d3nuc2asctxi2" path="res://assets/large_dice_brownyellow5.png" id="6_37nj0"]
+[ext_resource type="Texture2D" uid="uid://ckv2goftwo1ho" path="res://assets/large_dice_brownyellow6.png" id="7_3mcnu"]
+[ext_resource type="Texture2D" uid="uid://c1k8ap80kytp5" path="res://assets/large_dice_brownyellow7.png" id="8_whocg"]
+[ext_resource type="Texture2D" uid="uid://6bf5j3hygolw" path="res://assets/NormalShine.png" id="10_7uiqe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_naxfo"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.0627451, 0.0627451, 0.0627451, 0.486275)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_spch4"]
+bg_color = Color(0.976471, 0.94902, 0.819608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y1r7m"]
+bg_color = Color(0.823529, 0.686275, 0.368627, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_spch4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tlg7x"]
+bg_color = Color(0.226707, 0.226708, 0.226707, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f71gc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bcw1j")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bcw1j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f71gc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_m1u84")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7uiqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_37nj0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3mcnu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_whocg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bcw1j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_f71gc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_m1u84")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7uiqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_37nj0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3mcnu")
+}],
+"loop": false,
+"name": &"rolling",
+"speed": 7.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m1u84"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7uiqe"]
+bg_color = Color(0.226707, 0.226708, 0.226707, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mcnu"]
+atlas = ExtResource("10_7uiqe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whocg"]
+atlas = ExtResource("10_7uiqe")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3e5go"]
+atlas = ExtResource("10_7uiqe")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fqces"]
+atlas = ExtResource("10_7uiqe")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qexlc"]
+atlas = ExtResource("10_7uiqe")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pbr4"]
+atlas = ExtResource("10_7uiqe")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpb6x"]
+atlas = ExtResource("10_7uiqe")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dl20"]
+atlas = ExtResource("10_7uiqe")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1u84"]
+atlas = ExtResource("10_7uiqe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hg7ll"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mcnu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whocg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3e5go")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fqces")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qexlc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pbr4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpb6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dl20")
+}],
+"loop": false,
+"name": &"bagged",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1u84")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1u84"]
+bg_color = Color(0.310617, 0.310617, 0.310617, 1)
+border_color = Color(0.976471, 0.94902, 0.819608, 1)
+
+[node name="InGameDialogue" type="CanvasLayer"]
+script = ExtResource("1_m1u84")
+
+[node name="DialoguePanel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -184.5
+offset_top = -160.5
+offset_right = 184.5
+offset_bottom = 160.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_naxfo")
+
+[node name="HeadPanel" type="Panel" parent="DialoguePanel"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 359.0
+offset_bottom = 60.0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_spch4")
+
+[node name="Label" type="Label" parent="DialoguePanel/HeadPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.454923, 0.387165, 0.3252, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_veyft")
+theme_override_font_sizes/font_size = 38
+text = "DEGEN TIME!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InstructionPanel" type="Panel" parent="DialoguePanel"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+offset_left = 10.0
+offset_top = 135.0
+offset_right = 359.0
+offset_bottom = 185.0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_y1r7m")
+
+[node name="InstructionLabel" type="Label" parent="DialoguePanel/InstructionPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.5
+offset_top = -57.5
+offset_right = 1.5
+offset_bottom = -57.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.976471, 0.94902, 0.819608, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "This is Degen Trading! Will you go all out
+and embrace greed or you like to play it safe!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RiskButton" type="Button" parent="DialoguePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -138.0
+offset_top = 91.0
+offset_right = -50.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.976471, 0.94902, 0.819608, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxEmpty_spch4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tlg7x")
+text = "Take Risk"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DialoguePanel/RiskButton"]
+position = Vector2(45, -57)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_f71gc")
+animation = &"rolling"
+autoplay = "default"
+frame = 12
+frame_progress = 1.0
+
+[node name="safe25Button" type="Button" parent="DialoguePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = 93.0
+offset_right = 63.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.976471, 0.94902, 0.819608, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m1u84")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7uiqe")
+text = "25%"
+
+[node name="safe50Button2" type="Button" parent="DialoguePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 71.0
+offset_top = 93.0
+offset_right = 109.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.976471, 0.94902, 0.819608, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m1u84")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7uiqe")
+text = "50%"
+
+[node name="safe75Button3" type="Button" parent="DialoguePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 119.0
+offset_top = 93.0
+offset_right = 157.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.976471, 0.94902, 0.819608, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/focus = SubResource("StyleBoxEmpty_m1u84")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7uiqe")
+text = "75%"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="DialoguePanel"]
+texture_filter = 1
+position = Vector2(282.063, 170.219)
+scale = Vector2(4.33984, 4.48242)
+sprite_frames = SubResource("SpriteFrames_hg7ll")
+animation = &"bagged"
+autoplay = "default"
+frame = 7
+frame_progress = 1.0
+
+[node name="ResultLabel" type="Label" parent="DialoguePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.5
+offset_top = 20.5
+offset_right = 91.5
+offset_bottom = 54.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_m1u84")
+text = "WITHDRAWN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="DialoguePanel/RiskButton" to="." method="_on_risk_button_pressed"]
+[connection signal="pressed" from="DialoguePanel/safe25Button" to="." method="_on_safe_25_button_pressed"]
+[connection signal="pressed" from="DialoguePanel/safe50Button2" to="." method="_on_safe_50_button_2_pressed"]
+[connection signal="pressed" from="DialoguePanel/safe75Button3" to="." method="_on_safe_75_button_3_pressed"]

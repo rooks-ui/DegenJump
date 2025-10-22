@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxigwurru0iq4"]
+
+[ext_resource type="Script" uid="uid://cwy0x72q2plj5" path="res://scenes/rugcoin.gd" id="1_4bbm8"]
+[ext_resource type="Texture2D" uid="uid://rckh8klqif2y" path="res://assets/r1.png" id="2_4bbm8"]
+[ext_resource type="Texture2D" uid="uid://btuwfnmdc7xji" path="res://assets/r2.png" id="3_63wnh"]
+[ext_resource type="Texture2D" uid="uid://ll7bvyl5kkd7" path="res://assets/r3.png" id="4_1023h"]
+[ext_resource type="Texture2D" uid="uid://cy23uqw4y7wcs" path="res://assets/r4.png" id="5_7ct7t"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ok4ui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4bbm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_63wnh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1023h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7ct7t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wim3b"]
+radius = 21.095
+
+[node name="rugcoin" type="Area2D"]
+texture_filter = 1
+script = ExtResource("1_4bbm8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 2)
+scale = Vector2(3.09375, 2.71875)
+sprite_frames = SubResource("SpriteFrames_ok4ui")
+autoplay = "default"
+frame_progress = 0.433752
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 0)
+shape = SubResource("CircleShape2D_wim3b")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

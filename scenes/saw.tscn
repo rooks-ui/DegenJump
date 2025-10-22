@@ -1,0 +1,148 @@
+[gd_scene load_steps=17 format=3 uid="uid://dr2cvehkpykcb"]
+
+[ext_resource type="Texture2D" uid="uid://0y8w806rk2si" path="res://assets/On (38x38).png" id="1_k45r4"]
+[ext_resource type="Script" uid="uid://btaiulymu5hy6" path="res://scenes/saw.gd" id="1_kprxg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_846d5"]
+atlas = ExtResource("1_k45r4")
+region = Rect2(0, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_161w5"]
+atlas = ExtResource("1_k45r4")
+region = Rect2(38, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxxip"]
+atlas = ExtResource("1_k45r4")
+region = Rect2(76, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iw68n"]
+atlas = ExtResource("1_k45r4")
+region = Rect2(114, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_878ni"]
+atlas = ExtResource("1_k45r4")
+region = Rect2(152, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hi3xb"]
+atlas = ExtResource("1_k45r4")
+region = Rect2(190, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_578c5"]
+atlas = ExtResource("1_k45r4")
+region = Rect2(228, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rkwr"]
+atlas = ExtResource("1_k45r4")
+region = Rect2(266, 0, 38, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6l4vh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_846d5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_161w5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxxip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iw68n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_878ni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hi3xb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_578c5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rkwr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5sbp7"]
+radius = 24.0208
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kprxg"]
+radius = 42.2744
+
+[sub_resource type="Animation" id="Animation_0svky"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ia88d"]
+resource_name = "moving"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6dbb6"]
+_data = {
+&"RESET": SubResource("Animation_0svky"),
+&"moving": SubResource("Animation_ia88d")
+}
+
+[node name="saw" type="Path2D"]
+script = ExtResource("1_kprxg")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+position = Vector2(-0.274445, 2.00281)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PathFollow2D"]
+remote_path = NodePath("../../AnimatableBody2D")
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+position = Vector2(-0.274445, 2.00281)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AnimatableBody2D"]
+texture_filter = 1
+position = Vector2(-0.725555, 0.997192)
+scale = Vector2(2.21414, 2.14477)
+sprite_frames = SubResource("SpriteFrames_6l4vh")
+frame_progress = 0.997392
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+position = Vector2(-0.725555, 0.997192)
+shape = SubResource("CircleShape2D_5sbp7")
+
+[node name="Area2D" type="Area2D" parent="AnimatableBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/Area2D"]
+position = Vector2(-0.725555, 0.997192)
+shape = SubResource("CircleShape2D_kprxg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_6dbb6")
+}
+
+[connection signal="body_entered" from="AnimatableBody2D/Area2D" to="." method="_on_area_2d_body_entered"]

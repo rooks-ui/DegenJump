@@ -1,0 +1,78 @@
+[gd_scene load_steps=13 format=3 uid="uid://oyowuo313yjg"]
+
+[ext_resource type="Script" uid="uid://ds3sw3ttat5h5" path="res://scenes/chest_coin.gd" id="1_s3i6a"]
+[ext_resource type="Texture2D" uid="uid://be23wtte0k852" path="res://assets/1.png" id="1_u742d"]
+[ext_resource type="Texture2D" uid="uid://bc3n5qficglk3" path="res://assets/2.png" id="3_bc7jk"]
+[ext_resource type="Texture2D" uid="uid://bo5t2fdhkt8ec" path="res://assets/3.png" id="4_wdis4"]
+[ext_resource type="Texture2D" uid="uid://d0n52o4ieiipa" path="res://assets/4.png" id="5_4uavd"]
+[ext_resource type="Texture2D" uid="uid://xjde4op1x6f8" path="res://assets/5.png" id="6_n2f3a"]
+[ext_resource type="Texture2D" uid="uid://d1qtbvcwrsdi5" path="res://assets/6.png" id="7_c1cvo"]
+[ext_resource type="Texture2D" uid="uid://cpcy26535okk6" path="res://assets/7.png" id="8_3c1p6"]
+[ext_resource type="Texture2D" uid="uid://pedwsrccsaps" path="res://assets/8.png" id="9_w0h35"]
+[ext_resource type="AudioStream" uid="uid://6tr5702mstp1" path="res://assets/item-equip-6904.mp3" id="10_bc7jk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g42lq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_u742d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_u742d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bc7jk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wdis4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4uavd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_n2f3a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_c1cvo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3c1p6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_w0h35")
+}],
+"loop": false,
+"name": &"openChest",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hdt5"]
+size = Vector2(69, 67.5)
+
+[node name="chest" type="Area2D"]
+script = ExtResource("1_s3i6a")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(18, 22)
+scale = Vector2(2.125, 2.375)
+sprite_frames = SubResource("SpriteFrames_g42lq")
+animation = &"openChest"
+autoplay = "default"
+frame = 7
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(17, 26.75)
+shape = SubResource("RectangleShape2D_0hdt5")
+
+[node name="ChestSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_bc7jk")
+volume_db = -15.847
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

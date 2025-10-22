@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://caxdgdhj1dmns"]
+
+[ext_resource type="Script" uid="uid://6gkr5uqgcmnf" path="res://scenes/popup.gd" id="1_4ebxx"]
+
+[node name="popup" type="Node2D"]
+script = ExtResource("1_4ebxx")
+
+[node name="label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+text = "1"

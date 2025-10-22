@@ -1,0 +1,134 @@
+[gd_scene load_steps=8 format=3 uid="uid://sugxljj66c06"]
+
+[ext_resource type="Script" uid="uid://da4tu2qbt78oe" path="res://scenes/game_over.gd" id="1_tbwuq"]
+[ext_resource type="FontFile" uid="uid://dh6jh2opb8e4i" path="res://assets/Super Sunkissed.ttf" id="2_racf3"]
+[ext_resource type="Script" uid="uid://bxbcxc60qm84l" path="res://scenes/stat.gd" id="3_7m3ot"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u3awl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ku1j"]
+bg_color = Color(0.847474, 0.847475, 0.847474, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f31uk"]
+bg_color = Color(0.625597, 0.625597, 0.625596, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gnai3"]
+bg_color = Color(0.91664, 0.91664, 0.91664, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 2
+shadow_offset = Vector2(0, 3)
+
+[node name="GameOver" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_tbwuq")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.5
+offset_top = -206.5
+offset_right = 254.5
+offset_bottom = 206.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 33.5
+offset_bottom = 124.5
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.917647, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.976471, 0.67451, 0.145098, 1)
+theme_override_fonts/font = ExtResource("2_racf3")
+theme_override_font_sizes/font_size = 55
+text = "TRADE OVER !"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="stat" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -111.0
+offset_right = 79.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_racf3")
+theme_override_font_sizes/font_size = 30
+text = "COINS : 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_7m3ot")
+
+[node name="gameoveroptions" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.5
+offset_top = -28.0
+offset_right = 181.5
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="restart" type="Button" parent="Panel/gameoveroptions"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u3awl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2ku1j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f31uk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gnai3")
+text = "Restart"
+
+[node name="backmenu" type="Button" parent="Panel/gameoveroptions"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u3awl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2ku1j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_f31uk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gnai3")
+text = "Main Menu"
+
+[connection signal="pressed" from="Panel/gameoveroptions/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Panel/gameoveroptions/backmenu" to="." method="_on_backmenu_pressed"]

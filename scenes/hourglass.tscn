@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://dp2ivr4wtu3kt"]
+
+[ext_resource type="Script" uid="uid://cnbv4mtb1e50j" path="res://scenes/hourglass.gd" id="1_0aw6o"]
+[ext_resource type="Texture2D" uid="uid://cd5vol66xec3g" path="res://assets/Hourglass.png" id="2_0aw6o"]
+[ext_resource type="Texture2D" uid="uid://c0qumxhi18juq" path="res://assets/SpriteSheetOrange.png" id="2_gljpn"]
+[ext_resource type="AudioStream" uid="uid://l3lpd4mdh0pn" path="res://assets/simple-whoosh-382724.mp3" id="4_gljpn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iemr1"]
+atlas = ExtResource("2_gljpn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hiwc"]
+atlas = ExtResource("2_gljpn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjjj4"]
+atlas = ExtResource("2_gljpn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vauw1"]
+atlas = ExtResource("2_gljpn")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gljpn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iemr1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hiwc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjjj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vauw1")
+}],
+"loop": false,
+"name": &"collected",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0aw6o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iemr1"]
+size = Vector2(27, 34)
+
+[node name="hourglass" type="Area2D"]
+texture_filter = 1
+script = ExtResource("1_0aw6o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-4.39842, 18.5)
+scale = Vector2(1.6748, 2.0625)
+sprite_frames = SubResource("SpriteFrames_gljpn")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.5, 19)
+shape = SubResource("RectangleShape2D_iemr1")
+
+[node name="TimeSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_gljpn")
+volume_db = -10.895
+bus = &"SFX"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
